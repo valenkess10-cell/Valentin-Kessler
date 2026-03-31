@@ -1,0 +1,7 @@
+Clase 3 31/03/26
+
+npm es el gestor de librerías de node
+
+comandos que usamos hoy: npm create vite@latest (este es un comando para crear un proyecto vite)
+npm install sirve para descargar las dependencias del proyecto
+npm run dev sirve levanta un servidor local a traves de vite para correr la aplicación
