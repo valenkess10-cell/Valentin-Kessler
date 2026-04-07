@@ -1,7 +1,8 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import HeadeComponent from './components/HeadeComponent.vue';
+
 </script>
 
 <template>
-  <HelloWorld />
+  <HeadeComponent />
 </template>
