@@ -1,260 +1,78 @@
-<script>
-import { ref } from "vue";
-
-export default {
-  setup() {
-    const menuOpen = ref(false);
-    return { menuOpen };
-  },
-};
-</script>
-
 <template>
-<div>
-
-<!-- HEADER -->
-<header class="header">
-  <div class="container">
-    
-    <a href="#" class="logo">
-      <img src="/logo-roemmers.png" alt="Roemmers" />
-      <span>Roemmers</span>
-    </a>
-
-    <div class="menu-btn" @click="menuOpen = !menuOpen">
-      ☰
+  <nav class="navbar">
+    <div class="logo-section">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_Roemmers.png" alt="Roemmers" class="logo-img" />
+      <div class="brand-text">
+        <span class="main-title">Armado de Bolsas</span>
+        <span class="sub-title">ROEMMERS</span>
+      </div>
     </div>
-
-    <nav :class="['nav', menuOpen ? 'active' : '']">
-      <a href="#">Inicio</a>
-      <a href="#">Productos</a>
-      <a href="#">Contacto</a>
-    </nav>
-
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <h1 class="fade-up">Gestioná tus medicamentos fácil</h1>
-  <p class="fade-up delay">Organizá y armá tus bolsas rápido</p>
-  <button class="btn">Empezar</button>
-</section>
-
-<!-- PRODUCTOS -->
-<section class="products">
-  <h2 class="fade-up">Productos destacados</h2>
-
-  <div class="cards">
-    <div class="card fade-up">
-      <h3>Analgésicos</h3>
-      <p>Alivio rápido para dolores comunes</p>
-    </div>
-
-    <div class="card fade-up delay">
-      <h3>Vitaminas</h3>
-      <p>Refuerzo para tu salud diaria</p>
-    </div>
-
-    <div class="card fade-up delay2">
-      <h3>Antigripales</h3>
-      <p>Combatí síntomas del resfrío</p>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>© 2026 Roemmers</p>
-</footer>
-
-</div>
+    <ul class="nav-menu">
+      <li class="nav-link active">Inicio</li>
+      <li class="nav-link">Bolsas</li>
+      <li class="nav-link dropdown">
+        Ayuda <span class="arrow">▾</span>
+      </li>
+    </ul>
+  </nav>
 </template>
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: "Segoe UI", sans-serif;
+<script>
+export default {
+  name: 'HeadeComponent'
 }
+</script>
 
-/* HEADER */
-.header{
-  background:#ffd600;
-  padding:15px 30px;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  animation: slideDown 0.6s ease;
+<style scoped>
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
 }
-
-@keyframes slideDown{
-  from{ transform:translateY(-100%); }
-  to{ transform:translateY(0); }
+.logo-section {
+  display: flex;
+  align-items: center;
 }
-
-.container{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.logo-img {
+  height: 45px;
+  margin-right: 12px;
 }
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color:#000;
-  font-weight:bold;
+.brand-text {
+  display: flex;
+  flex-direction: column;
 }
-
-.logo img{
-  width:40px;
+.main-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
 }
-
-/* NAV */
-.nav{
-  display:flex;
-  gap:20px;
-  transition:0.3s;
+.sub-title {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #333;
+  margin-top: -4px;
 }
-
-.nav a{
-  text-decoration:none;
-  color:#000;
-  font-weight:600;
-  position:relative;
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
 }
-
-/* hover animado */
-.nav a::after{
-  content:"";
-  position:absolute;
-  width:0%;
-  height:2px;
-  background:#000;
-  left:0;
-  bottom:-4px;
-  transition:0.3s;
+.nav-link {
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 5px 0;
 }
-
-.nav a:hover::after{
-  width:100%;
+.nav-link.active {
+  color: #1a73e8;
+  border-bottom: 3px solid #1a73e8;
 }
-
-/* MENU BTN */
-.menu-btn{
-  display:none;
-  font-size:24px;
-  cursor:pointer;
-}
-
-/* HERO */
-.hero{
-  height:80vh;
-  background:#000;
-  color:#ffd600;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-
-/* BOTON */
-.btn{
-  margin-top:20px;
-  background:#ffd600;
-  color:#000;
-  border:none;
-  padding:12px 25px;
-  cursor:pointer;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-.btn:hover{
-  transform:scale(1.1);
-  box-shadow:0 5px 15px rgba(255,214,0,0.5);
-}
-
-/* PRODUCTOS */
-.products{
-  padding:50px 20px;
-  text-align:center;
-}
-
-.cards{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  margin-top:20px;
-  flex-wrap:wrap;
-}
-
-.card{
-  background:#fff;
-  border:2px solid #000;
-  padding:20px;
-  width:250px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-10px) scale(1.03);
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* FOOTER */
-.footer{
-  background:#000;
-  color:#ffd600;
-  text-align:center;
-  padding:20px;
-}
-
-/* ANIMACIONES GENERALES */
-.fade-up{
-  opacity:0;
-  transform:translateY(30px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-.delay{
-  animation-delay:0.3s;
-}
-
-.delay2{
-  animation-delay:0.6s;
-}
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-
-  .menu-btn{
-    display:block;
-  }
-
-  .nav{
-    position:absolute;
-    top:70px;
-    right:-100%;
-    background:#ffd600;
-    flex-direction:column;
-    width:200px;
-    padding:20px;
-  }
-
-  .nav.active{
-    right:0;
-  }
-
+.arrow {
+  font-size: 0.8rem;
 }
 </style>
