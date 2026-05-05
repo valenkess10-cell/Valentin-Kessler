@@ -8,8 +8,16 @@
       </div>
     </div>
     <ul class="nav-menu">
-      <li class="nav-link active">Inicio</li>
-      <li class="nav-link">Bolsas</li>
+      <li
+        class="nav-link"
+        :class="{ active: vistaActiva === 'inicio' }"
+        @click="$emit('cambiar-vista', 'inicio')"
+      >Inicio</li>
+      <li
+        class="nav-link"
+        :class="{ active: vistaActiva === 'bolsas' }"
+        @click="$emit('cambiar-vista', 'bolsas')"
+      >Bolsas</li>
       <li class="nav-link dropdown">
         Ayuda <span class="arrow">▾</span>
       </li>
@@ -19,7 +27,14 @@
 
 <script>
 export default {
-  name: 'HeadeComponent'
+  name: 'HeadeComponent',
+  props: {
+    vistaActiva: {
+      type: String,
+      default: 'inicio'
+    }
+  },
+  emits: ['cambiar-vista']
 }
 </script>
 
@@ -67,6 +82,10 @@ export default {
   font-weight: 500;
   cursor: pointer;
   padding: 5px 0;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: #1a73e8;
 }
 .nav-link.active {
   color: #1a73e8;

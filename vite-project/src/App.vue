@@ -1,10 +1,18 @@
 <template>
   <div id="app">
-    <HeadeComponent />
+    <HeadeComponent :vistaActiva="vistaActual" @cambiar-vista="vistaActual = $event" />
     <main class="content-wrapper">
       <SystemBanner />
-      <BolsaForm />
-      <BolsasLista />
+
+      <!-- Vista: Inicio -->
+      <template v-if="vistaActual === 'inicio'">
+        <BolsaForm @bolsa-confirmada="agregarBolsa" />
+      </template>
+
+      <!-- Vista: Bolsas -->
+      <template v-else-if="vistaActual === 'bolsas'">
+        <BolsasLista :bolsas="bolsas" />
+      </template>
     </main>
     <FooterComponent />
   </div>
@@ -25,23 +33,32 @@ export default {
     BolsaForm,
     BolsasLista,
     FooterComponent
+  },
+  data() {
+    return {
+      vistaActual: 'inicio',
+      bolsas: []
+    }
+  },
+  methods: {
+    agregarBolsa(bolsa) {
+      this.bolsas.push(bolsa)
+      this.vistaActual = 'bolsas' // Redirige a la lista luego de confirmar
+    }
   }
 }
 </script>
 
 <style>
-/* Estilos globales para toda la aplicación */
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
-  background-color: #f0f4f8; /* El color de fondo azul suave */
+  background-color: #f0f4f8;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .content-wrapper {
   padding: 20px;
 }
