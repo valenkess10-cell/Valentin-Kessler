@@ -25,7 +25,7 @@
       <p class="info-desc">
         Plataforma para el armado, control y trazabilidad de bolsas de medicamentos
         por paciente. Permite registrar, auditar y confirmar el despacho con
-        trazabilidad completa[cite: 6].
+        trazabilidad completa.
       </p>
       <div class="info-badges">
         <span class="badge">Uso interno</span>

@@ -1,0 +1,12 @@
+Paquete: Soporte + Información en el footer (modales)
+
+Incluye estos archivos para reemplazar en tu proyecto:
+  src/components/FooterComponent.vue
+  src/components/InformacionSection.vue
+  src/components/SoporteSection.vue
+
+Cómo obtener un ZIP en Windows:
+  1. Seleccioná los 3 archivos .vue (o toda esta carpeta).
+  2. Clic derecho > Enviar a > Carpeta comprimida (en zip).
+
+Los .vue de esta carpeta son copias del estado actual del proyecto.

@@ -2,7 +2,7 @@
   <div class="soporte-wrap">
     <div class="soporte-header">
       <h2>Centro de soporte</h2>
-      <p>¿Necesitás ayuda? Elegí una opción o envianos tu consulta[cite: 7].</p>
+      <p>¿Necesitás ayuda? Elegí una opción o envianos tu consulta.</p>
     </div>
 
     <div class="soporte-body">

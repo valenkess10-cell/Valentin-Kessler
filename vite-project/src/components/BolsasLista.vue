@@ -6,12 +6,18 @@
       <div class="bolsa-header">
         <div class="bolsa-info">
           <span class="bolsa-nombre">{{ bolsa.nombre }}</span>
-          <span class="bolsa-dni">DNI: {{ bolsa.dni }}</span>
+          <span class="bolsa-dni">DNI: {{ formatearDni(bolsa.dni) }}</span>
         </div>
-        <span class="bolsa-badge">{{ bolsa.medicamentos.length }} medicamento{{ bolsa.medicamentos.length !== 1 ? 's' : '' }}</span>
+        <div class="badges">
+          <span class="bolsa-badge blue">{{ bolsa.medicamentos.length }} medicamento{{ bolsa.medicamentos.length !== 1 ? 's' : '' }}</span>
+          <span class="bolsa-badge green">📦 {{ totalCajas(bolsa) }} caja{{ totalCajas(bolsa) !== 1 ? 's' : '' }}</span>
+        </div>
       </div>
       <ul class="med-list">
-        <li v-for="(med, i) in bolsa.medicamentos" :key="i">{{ med }}</li>
+        <li v-for="(med, i) in bolsa.medicamentos" :key="i">
+          <span class="med-nombre">{{ med.nombre }}</span>
+          <span class="med-cajas">{{ med.cajas }} caja{{ med.cajas !== 1 ? 's' : '' }}</span>
+        </li>
       </ul>
     </div>
 
@@ -28,6 +34,17 @@ export default {
     bolsas: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    formatearDni(dni) {
+      const n = String(dni).replace(/\./g, '')
+      if (n.length <= 2) return n
+      if (n.length <= 5) return n.slice(0, n.length - 3) + '.' + n.slice(-3)
+      return n.slice(0, n.length - 6) + '.' + n.slice(-6, -3) + '.' + n.slice(-3)
+    },
+    totalCajas(bolsa) {
+      return bolsa.medicamentos.reduce((sum, m) => sum + (m.cajas || 0), 0)
     }
   }
 }
@@ -61,13 +78,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 12px;
 }
 .bolsa-info {
   display: flex;
   flex-direction: column;
+  gap: 3px;
 }
 .bolsa-nombre {
   font-size: 1.15rem;
@@ -77,30 +95,51 @@ export default {
 .bolsa-dni {
   font-size: 0.85rem;
   color: #888;
-  margin-top: 2px;
+}
+.badges {
+  display: flex;
+  gap: 8px;
 }
 .bolsa-badge {
-  background-color: #e3f2fd;
-  color: #1a73e8;
   border-radius: 20px;
   padding: 4px 14px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
+}
+.blue {
+  background-color: #e3f2fd;
+  color: #1a73e8;
+}
+.green {
+  background-color: #e8f5e9;
+  color: #2e7d32;
 }
 .med-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 6px;
 }
 .med-list li {
-  background-color: #f5f5f5;
-  color: #555;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f8ff;
+  border: 1px solid #e3eaff;
+  padding: 7px 14px;
+  border-radius: 8px;
+}
+.med-nombre {
+  color: #444;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.med-cajas {
+  font-size: 0.83rem;
+  color: #1a73e8;
+  font-weight: 500;
 }
 .empty-state {
   text-align: center;

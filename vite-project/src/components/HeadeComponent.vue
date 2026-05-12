@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="logo-section">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Logo_Roemmers.png" alt="Roemmers" class="logo-img" />
+      <img src="/logo-roemmers.png" alt="Roemmers" class="logo-img" />
       <div class="brand-text">
         <span class="main-title">Armado de Bolsas</span>
         <span class="sub-title">ROEMMERS</span>
