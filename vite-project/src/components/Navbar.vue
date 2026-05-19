@@ -10,9 +10,25 @@
       </div>
 
       <ul class="nav-links">
-        <li class="nav-item active">Inicio</li>
-        <li class="nav-item">Bolsas</li>
-        <li class="nav-item dropdown">
+        <li 
+          class="nav-item" 
+          :class="{ active: vistaActual === 'inicio' }"
+          @click="$emit('cambiar-vista', 'inicio')"
+        >
+          Inicio
+        </li>
+        <li 
+          class="nav-item" 
+          :class="{ active: vistaActual === 'bolsas' }"
+          @click="$emit('cambiar-vista', 'bolsas')"
+        >
+          Bolsas
+        </li>
+        <li 
+          class="nav-item dropdown"
+          :class="{ active: vistaActual === 'ayuda' }"
+          @click="$emit('cambiar-vista', 'ayuda')"
+        >
           Ayuda 
           <span class="arrow-down"></span>
         </li>
@@ -23,7 +39,14 @@
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  props: {
+    vistaActual: {
+      type: String,
+      default: 'inicio'
+    }
+  },
+  emits: ['cambiar-vista']
 }
 </script>
 
@@ -68,46 +91,52 @@ export default {
   font-size: 0.6rem;
   font-weight: bold;
   letter-spacing: 1px;
-  color: #333;
-  margin-top: -5px;
+  color: #666;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 2rem;
+  list-style: none;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
 
 .nav-item {
+  font-size: 0.95rem;
   color: #555;
   cursor: pointer;
-  font-weight: 500;
-  padding-bottom: 5px;
-  transition: color 0.3s;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
 }
 
 .nav-item:hover {
-  color: #0056b3;
+  color: #1a73e8;
+  background-color: #f5f8ff;
 }
 
-.active {
-  color: #0056b3;
-  border-bottom: 3px solid #0056b3;
+.nav-item.active {
+  color: #1a73e8;
+  font-weight: 600;
 }
 
 .dropdown {
   display: flex;
   align-items: center;
+  gap: 4px;
 }
 
 .arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #555;
-  margin-left: 8px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #555;
+}
+
+.nav-item.active .arrow-down {
+  border-top-color: #1a73e8;
 }
 </style>

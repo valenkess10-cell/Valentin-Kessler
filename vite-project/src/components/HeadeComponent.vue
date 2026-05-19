@@ -12,13 +12,21 @@
         class="nav-link"
         :class="{ active: vistaActiva === 'inicio' }"
         @click="$emit('cambiar-vista', 'inicio')"
-      >Inicio</li>
+      >
+        Inicio
+      </li>
       <li
         class="nav-link"
         :class="{ active: vistaActiva === 'bolsas' }"
         @click="$emit('cambiar-vista', 'bolsas')"
-      >Bolsas</li>
-      <li class="nav-link dropdown">
+      >
+        Bolsas
+      </li>
+      <li 
+        class="nav-link dropdown"
+        :class="{ active: vistaActiva === 'ayuda' }"
+        @click="$emit('cambiar-vista', 'ayuda')"
+      >
         Ayuda <span class="arrow">▾</span>
       </li>
     </ul>
@@ -33,8 +41,7 @@ export default {
       type: String,
       default: 'inicio'
     }
-  },
-  emits: ['cambiar-vista']
+  }
 }
 </script>
 
@@ -62,34 +69,44 @@ export default {
 }
 .main-title {
   font-size: 1.4rem;
-  font-weight: 500;
-  color: #333;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.2;
 }
 .sub-title {
-  font-size: 0.7rem;
-  font-weight: 900;
-  color: #333;
-  margin-top: -4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #7f8c8d;
+  letter-spacing: 1.5px;
 }
 .nav-menu {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 30px;
   margin: 0;
+  padding: 0;
 }
 .nav-link {
-  color: #666;
-  font-weight: 500;
+  font-size: 1rem;
+  color: #555;
   cursor: pointer;
-  padding: 5px 0;
-  transition: color 0.2s;
+  padding: 8px 0;
+  font-weight: 500;
+  transition: color 0.2s, border-color 0.2s;
+  border-bottom: 2px solid transparent;
 }
 .nav-link:hover {
   color: #1a73e8;
 }
 .nav-link.active {
   color: #1a73e8;
-  border-bottom: 3px solid #1a73e8;
+  border-bottom: 2px solid #1a73e8;
+  font-weight: 600;
+}
+.dropdown {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .arrow {
   font-size: 0.8rem;
