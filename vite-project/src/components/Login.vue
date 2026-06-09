@@ -6,7 +6,11 @@
 
       <div class="login-card">
         <div class="login-header">
-          <img src="/logo-roemmers.png" alt="Roemmers" class="login-logo" />
+          <div class="user-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+            </svg>
+          </div>
           <h2>Sistema de Gestión</h2>
           <p v-if="esLogin">Introduce tus credenciales para ingresar</p>
           <p v-else>Crea una cuenta interna de operador</p>
@@ -191,7 +195,7 @@ export default {
 .login-page {
   height: 100vh;
   width: 100vw;
-  background-color: #0f172a;
+  background-color: #eef2f7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,25 +214,24 @@ export default {
   border-radius: 50%;
 }
 .shape:first-child {
-  background: linear-gradient(#1845ad, #23a2f6);
+  background: linear-gradient(#1a73e8, #64b5f6);
   left: -80px;
   top: -80px;
 }
 .shape:last-child {
-  background: linear-gradient(to right, #ff512f, #f09819);
+  background: linear-gradient(to right, #42a5f5, #1565c0);
   right: -80px;
   bottom: -80px;
 }
 
 .login-card {
   width: 400px;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+  border: 1px solid #e0e7ef;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
   padding: 35px;
-  color: white;
+  color: #2c3e50;
   z-index: 10;
 }
 
@@ -237,10 +240,21 @@ export default {
   margin-bottom: 20px;
 }
 
-.login-logo {
-  height: 55px;
-  margin-bottom: 12px;
-  filter: brightness(0) invert(1);
+.user-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e3f2fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  border: 2px solid #bbdefb;
+}
+.user-avatar svg {
+  width: 42px;
+  height: 42px;
+  color: #1a73e8;
 }
 
 .login-header h2 {
@@ -250,13 +264,13 @@ export default {
 
 .login-header p {
   font-size: 0.85rem;
-  opacity: 0.7;
+  color: #888;
   margin-top: 5px;
 }
 
 .auth-tabs {
   display: flex;
-  background: rgba(0, 0, 0, 0.2);
+  background: #f0f4f8;
   border-radius: 8px;
   margin-bottom: 25px;
   padding: 4px;
@@ -266,7 +280,7 @@ export default {
   flex: 1;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: #888;
   padding: 10px;
   cursor: pointer;
   font-weight: 600;
@@ -276,8 +290,8 @@ export default {
 }
 
 .auth-tabs button.active {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: #ffffff;
+  color: #1a73e8;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -296,28 +310,28 @@ export default {
 .input-group label {
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: #1a73e8;
 }
 
 .input-group input {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #fafafa;
+  border: 1.5px solid #ddd;
   border-radius: 8px;
   padding: 11px 14px;
-  color: white;
+  color: #2c3e50;
   outline: none;
   font-size: 0.95rem;
   transition: all 0.3s;
 }
 
 .input-group input:focus {
-  border-color: #23a2f6;
-  background: rgba(255, 255, 255, 0.2);
+  border-color: #1a73e8;
+  background: #fff;
 }
 
 .btn-login {
-  background: #ffffff;
-  color: #0f172a;
+  background: #1a73e8;
+  color: #ffffff;
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -329,7 +343,7 @@ export default {
 }
 
 .btn-login:hover {
-  background: #e2e8f0;
+  background: #1558c0;
   transform: translateY(-2px);
 }
 
@@ -366,6 +380,6 @@ export default {
   margin-top: 25px;
   text-align: center;
   font-size: 0.75rem;
-  opacity: 0.5;
+  color: #aaa;
 }
 </style>
