@@ -1,0 +1,46 @@
+Base de datos:
+¿Que es una base de datos?
+un conjunto de datos almacenados en un forato especifico
+e interrelacionados por un contexto en comun.
+Su fin es guardar informacion en un formato especifico
+---------------------------------------------------------------------------------------------------
+componenetes de una base de datos 
+INFORMACIÓN: La informacion se obtiene de la base de datos,
+esta integrada y ademas es compartida
+
+SGBD: sistema de gestion de base de datos:
+sistema de gestion de base de datos(DBMS por sus siglas en ingles). 
+Ej: oracle, MySQL, SQLServer; Access, entre otros
+aplicaciones que han sido diseñadas para
+gestionar grandes cantidades de información
+---------------------------------------------------------------------------------------------------
+Hardware
+-Almacenamiento secundario
+-Procesadores, memorias, etc.
+---------------------------------------------------------------------------------------------------
+Usuarios
+-Aplicaciones y personas que interactuan con la BD
+---------------------------------------------------------------------------------------------------
+cuales son las carecteristicas de un SGBD
+Recuperacion: capacidad de proteger los datos ante fallos en el sistema o en las aplicaciones
+
+concurrencia: Permiten que muchas transacciones puedan acceder a una misma base de datos a la vez
+
+integridad Se refiere a la correctitud y completitud de la informacion en una base de datos
+
+seguridad: Se refiere a la correctitud y completitud de la informacion en una base de datos
+---------------------------------------------------------------------------------------------------
+Modelo de base de datos
+
+Concepto: Un modelo de base de datos permite generar
+la estructura logica de la base, incluidas las relaciones y limitaciones que determinana
+como se almacenan los datos y como se accede a ellos
+---------------------------------------------------------------------------------------------------
+Tipos de modelos de base de datos
+¡Nosotros usaremos este!
+Relacional: coleccion de tablas para representar tanto los datos como sus relaciones
+Entidad-Relacion: Percepcion del mundo real que consiste en una coleccion de objetos basicos, 
+denominados entidades, y de las relaciones entre ellos
+
+
+
